@@ -4,7 +4,9 @@
 	"description": "0.0.1",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "mocha --compilers js:babel/register ./test/**/*.js",
+		"compile": "babel -d lib/ src/",
+		"prepublish": "npm run compile"
 	},
 	"repository": {
 		"type": "git",
@@ -23,9 +25,12 @@
 	"homepage": "https://github.com/HolyMeekrob/scorage-rest#readme",
 	"devDependencies": {
 		"babel": "^5.8.23",
+		"chai": "^3.3.0",
 		"gulp": "^3.9.0",
 		"gulp-eslint": "^1.0.0",
-		"gulp-nodemon": "^2.0.4"
+		"gulp-mocha": "^2.1.3",
+		"gulp-nodemon": "^2.0.4",
+		"mocha": "^2.3.3"
 	},
 	"dependencies": {
 		"koa": "^1.1.0",

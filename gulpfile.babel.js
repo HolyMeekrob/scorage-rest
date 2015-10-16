@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import mocha from 'gulp-mocha';
 import nodemon from 'gulp-nodemon';
 import eslint from 'gulp-eslint';
 import {} from 'babel/register';
@@ -19,4 +20,10 @@ gulp.task('default', ['lint'], () => {
 			js: 'babel-node'
 		}
 	});
+});
+
+gulp.task('test', () => {
+	return gulp
+		.src('test/**/*.js')
+		.pipe(mocha());
 });

@@ -1,19 +1,17 @@
+# ES6 source
+src/
+
 # Logs
 logs
 *.log
 
-# Runtime data
-pids
-*.pid
-*.seed
-
 # Dependency directory
-node_modules
+node_modules/
 
 # Settings
 .vscode
 jsconfig.json
-*.d.ts
+*d.ts
 
-# Compiled files
-lib
+# Tests
+test/
