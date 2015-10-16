@@ -1,0 +1,35 @@
+{
+	"name": "scorage-rest",
+	"version": "1.0.0",
+	"description": "0.0.1",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/HolyMeekrob/scorage-rest.git"
+	},
+	"keywords": [
+		"scorage",
+		"rest",
+		"api"
+	],
+	"author": "Andy Steinberg <holy.meekrob@gmail.com> (http://www.epicaricacy.com)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/HolyMeekrob/scorage-rest/issues"
+	},
+	"homepage": "https://github.com/HolyMeekrob/scorage-rest#readme",
+	"devDependencies": {
+		"babel": "^5.8.23",
+		"gulp": "^3.9.0",
+		"gulp-eslint": "^1.0.0",
+		"gulp-nodemon": "^2.0.4"
+	},
+	"dependencies": {
+		"koa": "^1.1.0",
+		"koa-body": "^1.3.0",
+		"koa-router": "^5.2.3"
+	}
+}
