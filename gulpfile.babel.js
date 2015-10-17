@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import mocha from 'gulp-mocha';
 import nodemon from 'gulp-nodemon';
 import eslint from 'gulp-eslint';
+import exit from 'gulp-exit';
 import {} from 'babel/register';
 
 gulp.task('lint', () => {
@@ -25,5 +26,6 @@ gulp.task('default', ['lint'], () => {
 gulp.task('test', () => {
 	return gulp
 		.src('test/**/*.js')
-		.pipe(mocha());
+		.pipe(mocha())
+		.pipe(exit());
 });

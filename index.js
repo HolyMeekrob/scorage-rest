@@ -7,3 +7,5 @@ const router = routerBuilder(app);
 router.registerRoutes();
 
 app.listen(process.env.WEB_PORT);
+
+export default app;
