@@ -24,7 +24,6 @@ const baseController = (model) => {
 
 	const createNew = function* (next) {
 		this.accepts('application/json');
-
 		const newRow = yield model.create(this.request.body);
 		this.body = newRow;
 
