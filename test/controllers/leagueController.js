@@ -6,7 +6,7 @@ const scorageStub = {
 	league: {
 		get: sinon.stub(),
 		getById: sinon.stub(),
-		getByFormatterId: sinon.stub(),
+		getSeasons: sinon.stub(),
 		create: sinon.stub(),
 		updateById: sinon.stub()
 	}
@@ -34,6 +34,7 @@ describe('leagueController', () => {
 	beforeEach(() => {
 		scorageStub.league.get.reset();
 		scorageStub.league.getById.reset();
+		scorageStub.league.getSeasons.reset();
 		scorageStub.league.create.reset();
 		scorageStub.league.updateById.reset();
 	});
@@ -72,6 +73,7 @@ describe('leagueController', () => {
 					.expect(204, done);
 			});
 		});
+
 		describe('when given an id that exists within the dataset', () => {
 			it('should respond with the league', (done) => {
 				const allLeagues = [
@@ -88,6 +90,53 @@ describe('leagueController', () => {
 				request
 					.get(`/leagues/${id}`)
 					.expect(200, allLeagues[0], done);
+			});
+		});
+	});
+
+	describe('GET /leagues/:id/seasons', () => {
+		describe('when the league has no seasons', () => {
+			it('should return an empty array', (done) => {
+				const allLeagues = [
+					{ id: 7, name: 'Major' },
+					{ id: 9, name: 'Minor' }
+				];
+
+				const id = 7;
+				const seasons = [
+					{ id: 100, name: 'Spring 2000', league_id: 9 },
+					{ id: 101, name: 'Fall 2000', league_id: 9 }
+				];
+
+				scorageStub.league.getSeasons.withArgs(id).returns(Promise.resolve(
+					seasons.filter((season) => season.league_id === id)));
+
+				request
+					.get(`/leagues/${id}/seasons`)
+					.expect(200, [], done);
+			});
+		});
+
+		describe('when the league has seasons', () => {
+			it('should return the seasons', (done) => {
+				const allLeagues = [
+					{ id: 7, name: 'Major' },
+					{ id: 9, name: 'Minor' }
+				];
+
+				const id = 9;
+				const seasons = [
+					{ id: 100, name: 'Spring 2000', league_id: 9 },
+					{ id: 101, name: 'Fall 2000', league_id: 9 },
+					{ id: 102, name: 'Autumn 2000', league_id: 7 }
+				];
+
+				scorageStub.league.getSeasons.withArgs(id).returns(Promise.resolve(
+					seasons.filter((season) => season.league_id === id)));
+
+				request
+					.get(`/leagues/${id}/seasons`)
+					.expect(200, [seasons[0], seasons[1]], done);
 			});
 		});
 	});
