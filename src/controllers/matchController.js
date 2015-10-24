@@ -15,7 +15,8 @@ router.get('/:id', base.setJsonType, base.getById);
 
 // Get match plays (in order)
 router.get('/:id/plays', base.setJsonType, function * (next) {
-	yield matchModel.getMatchPlays(parseInt(this.params.id, 10));
+	const plays = yield matchModel.getPlays(parseInt(this.params.id, 10));
+	this.body = plays;
 
 	yield next;
 });
