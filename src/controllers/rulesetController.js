@@ -15,7 +15,7 @@ router.get('/:id', base.setJsonType, base.getById);
 
 // Get by game id
 router.get('/game/:gameId', base.setJsonType, function* (next) {
-	yield rulesetModel.getByGameId(this.params.gameId)
+	yield rulesetModel.getByGameId(parseInt(this.params.gameId, 10))
 		.then((rulesets) => {
 			this.body = rulesets;
 		});
