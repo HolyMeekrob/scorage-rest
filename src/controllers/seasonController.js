@@ -41,7 +41,7 @@ router.put('/:seasonId/team/:teamId', base.setJsonType, function* (next) {
 // Remove team
 router.delete('/:seasonId/team/:teamId', base.setJsonType, function* (next) {
 	const updatedList = yield seasonModel.removeTeam(
-		parseInt(this.params.teamId, 10), parseInt(this.params.season, 10));
+		parseInt(this.params.teamId, 10), parseInt(this.params.seasonId, 10));
 	this.body = updatedList;
 
 	yield next;
