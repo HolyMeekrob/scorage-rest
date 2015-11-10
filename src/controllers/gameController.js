@@ -1,8 +1,10 @@
-import { game as gameModel } from 'scorage';
+import scorage from 'scorage';
 import koaBody from 'koa-body';
 import koaRouter from 'koa-router';
 const router = koaRouter({ prefix: '/games' });
 const bodyParser = koaBody();
+
+const gameModel = scorage.game;
 
 import baseController from './baseController';
 const base = baseController(gameModel);

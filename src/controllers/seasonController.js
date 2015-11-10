@@ -1,8 +1,10 @@
-import { season as seasonModel } from 'scorage';
+import scorage from 'scorage';
 import koaBody from 'koa-body';
 import koaRouter from 'koa-router';
 const router = koaRouter({ prefix: '/seasons' });
 const bodyParser = koaBody();
+
+const seasonModel = scorage.season;
 
 import baseController from './baseController';
 const base = baseController(seasonModel);

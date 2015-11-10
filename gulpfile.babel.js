@@ -3,7 +3,8 @@ import mocha from 'gulp-mocha';
 import nodemon from 'gulp-nodemon';
 import eslint from 'gulp-eslint';
 import exit from 'gulp-exit';
-import {} from 'babel/register';
+import {} from 'babel-core/register';
+import {} from 'babel-polyfill';
 
 gulp.task('lint', () => {
 	return gulp.src(['src/**/*.js'])

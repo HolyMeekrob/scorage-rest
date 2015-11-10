@@ -1,8 +1,10 @@
-import { location as locationModel } from 'scorage';
+import scorage from 'scorage';
 import koaBody from 'koa-body';
 import koaRouter from 'koa-router';
 const router = koaRouter({ prefix: '/locations' });
 const bodyParser = koaBody();
+
+const locationModel = scorage.location;
 
 import baseController from './baseController';
 const base = baseController(locationModel);

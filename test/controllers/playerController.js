@@ -1,4 +1,4 @@
-import { agent } from 'supertest';
+import agent from 'supertest';
 import proxyquire from 'proxyquire';
 import sinon from 'sinon';
 

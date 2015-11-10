@@ -1,8 +1,10 @@
-import { ruleset as rulesetModel } from 'scorage';
+import scorage from 'scorage';
 import koaBody from 'koa-body';
 import koaRouter from 'koa-router';
 const router = koaRouter({ prefix: '/rulesets' });
 const bodyParser = koaBody();
+
+const rulesetModel = scorage.ruleset;
 
 import baseController from './baseController';
 const base = baseController(rulesetModel);

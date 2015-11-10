@@ -4,7 +4,7 @@
 	"description": "0.0.1",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha --compilers js:babel/register ./test/**/*.js",
+		"test": "mocha --compilers js:babel-core/register ./test/**/*.js",
 		"compile": "babel -d lib/ src/",
 		"prepublish": "npm run compile"
 	},
@@ -24,7 +24,9 @@
 	},
 	"homepage": "https://github.com/HolyMeekrob/scorage-rest#readme",
 	"devDependencies": {
-		"babel": "^5.8.23",
+		"babel-cli": "^6.1.2",
+		"babel-polyfill": "^6.0.16",
+		"babel-preset-es2015": "^6.1.2",
 		"chai": "^3.3.0",
 		"eslint": "^1.8.0",
 		"gulp": "^3.9.0",

@@ -1,8 +1,10 @@
-import { match as matchModel } from 'scorage';
+import scorage from 'scorage';
 import koaBody from 'koa-body';
 import koaRouter from 'koa-router';
 const router = koaRouter({ prefix: '/matches' });
 const bodyParser = koaBody();
+
+const matchModel = scorage.match;
 
 import baseController from './baseController';
 const base = baseController(matchModel);
